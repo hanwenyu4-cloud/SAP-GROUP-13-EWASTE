@@ -1,0 +1,100 @@
+print("_" *85)
+print("SMART E-WASTE PHONE MANAGEMENT 2050".center(80))
+print("")
+print("Welcome New User".center(80))
+print("_"*85)
+print("")
+
+name = str(input("Username: "))
+email = str(input("Email: "))
+confirmemail = str(input("Confirmed Email: "))
+while confirmemail != email:
+  print("Invalid")
+  print("Please recheck email.")
+  print("")
+  name = str(input("Username: "))
+  email = str(input("Email: "))
+  confirmemail = str(input("Confirmed Email: "))
+
+print("")
+print("="*80)
+
+numdevice = int(input("Number of Device to Store: "))
+print("="*80)
+print("")
+
+def value_price():
+  if battery_life <= 50:
+    value_price = mass_in_g * recycable_percentage *0.5
+  elif battery_life <= 70:
+    value_price = mass_in_g * recycable_percentage * 0.7
+  elif battery_life <= 85:
+    value_price = mass_in_g * recycable_percentage * 0.85
+  elif battery_life <= 95:
+    value_price = mass_in_g * recycable_percentage * 0.95
+  else:
+    value_price = mass_in_g * recycable_percentage
+  print("Estimated Value of Device:  RM", value_price)
+
+count= 1
+while count <= numdevice:
+  print("")
+  print("(1)Smartphone")
+  print("(2)Laptop")
+  print("(3)Tablet")
+  devicetype = int(input("Choose Device Type: "))
+
+  if devicetype == 1:
+    brand = str(input("Brand: "))
+    model = str(input("Device Model: "))
+    if brand.upper() == "APPLE":
+      ios_model = str(input("IOS Model: "))
+      time_not_used = int(input("MONTHS: "))
+      battery_life = float(input("Battery Life (%): "))
+     
+      print("")
+      print("Select Your Choice:")
+      print("(1) Store")
+      print("(2) Recycle")
+      if battery_life <= 85:
+        print("RECYCLE is Recommended.")
+      choice = int(input("Decide your next action: "))
+
+      if choice == 2:
+        if model.upper() == "IPHONE 17":
+          recycable_percentage = 0.3
+          mass_in_g = 177
+          value_price()
+        
+        
+    elif brand.upper() in {"SAMSUNG", "HUAWEI", "OPPO", "HONOR", "VIVO",  "ROG",  "XIAOMI", "REALME", "SONY",  "NOKIA", "LENOVO"}:
+      android_model = str(input("ANDROID Model: "))
+      time_not_used = int(input("MONTHS: "))
+
+  elif devicetype == 2:
+    brand = str(input("Brand: "))
+    model = str(input("Device Model: "))
+    if brand.upper() == "APPLE":
+      ios_model = str(input("IOS Model: "))
+      time_not_used = int(input("MONTHS: "))
+      battery_life = float(input("Battery Life (%): "))
+    elif brand.upper() in {"HP",  "ROG",  "ASUS", "REALME", "SONY",  "MSI", "LENOVO"}:
+      windows_model = str(input("Windows Model: "))
+      time_not_used = int(input("MONTHS: "))
+    elif brand.upper() in {"HUAWEI", "OPPO", "VIVO", "SAMSUNG"}:
+      android_model = str(input("ANDROID Model: "))
+      time_not_used = int(input("MONTHS: "))
+
+  elif devicetype == 3:
+    brand = str(input("Brand: "))
+    model = str(input("Device Model: "))
+    if brand.upper() == "APPLE":
+      ios_model = str(input("IOS Model: "))
+      time_not_used = int(input("MONTHS: "))
+      battery_life = float(input("Battery Life (%): "))
+    elif brand.upper() in {"SAMSUNG", "HUAWEI", "OPPO", "HONOR", "VIVO",  "ROG",  "XIAOMI", "REALME", "SONY",  "LENOVO"}:
+      android_model = str(input("ANDROID Model: "))
+      time_not_used = int(input("MONTHS: "))
+
+  count +=1
+
